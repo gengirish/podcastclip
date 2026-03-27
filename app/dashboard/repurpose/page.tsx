@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { API_URL } from "@/lib/utils";
 import { toast } from "sonner";
-import { Scissors, Youtube, FileText, Copy, CheckCheck, Loader2 } from "lucide-react";
+import { Scissors, Play, FileText, Copy, CheckCheck, Loader2 } from "lucide-react";
+const Youtube = Play;
 import { cn } from "@/lib/utils";
 
 interface ContentPiece {
