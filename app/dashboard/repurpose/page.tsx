@@ -4,7 +4,7 @@ import { useState } from "react";
 import { API_URL } from "@/lib/utils";
 import { toast } from "sonner";
 import { Scissors, Play, FileText, Copy, CheckCheck, Loader2 } from "lucide-react";
-const Youtube = Play;
+const PlayCircle = Play;
 import { cn } from "@/lib/utils";
 
 interface ContentPiece {
@@ -56,8 +56,8 @@ export default function RepurposePage() {
   const [inputTab, setInputTab] = useState<"transcript" | "youtube">("transcript");
   const [title, setTitle] = useState("");
   const [transcript, setTranscript] = useState("");
-  const [youtubeUrl, setYoutubeUrl] = useState("");
-  const [youtubeTitle, setYoutubeTitle] = useState("");
+  const [youtubeUrl, setPlayCircleUrl] = useState("");
+  const [youtubeTitle, setPlayCircleTitle] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ResultData | null>(null);
   const [activeContentTab, setActiveContentTab] = useState("clip");
@@ -90,7 +90,7 @@ export default function RepurposePage() {
     }
   };
 
-  const handleYoutubeSubmit = async (e: React.FormEvent) => {
+  const handlePlayCircleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!youtubeUrl.trim()) {
       toast.error("Please enter a YouTube URL.");
@@ -150,7 +150,7 @@ export default function RepurposePage() {
               inputTab === "youtube" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"
             )}
           >
-            <Youtube className="w-4 h-4" />
+            <PlayCircle className="w-4 h-4" />
             YouTube URL
           </button>
         </div>
@@ -199,13 +199,13 @@ export default function RepurposePage() {
             </button>
           </form>
         ) : (
-          <form onSubmit={handleYoutubeSubmit} className="space-y-4">
+          <form onSubmit={handlePlayCircleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">Custom Title (optional)</label>
               <input
                 type="text"
                 value={youtubeTitle}
-                onChange={(e) => setYoutubeTitle(e.target.value)}
+                onChange={(e) => setPlayCircleTitle(e.target.value)}
                 placeholder="Leave blank to auto-detect"
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-900 placeholder-slate-400"
               />
@@ -215,7 +215,7 @@ export default function RepurposePage() {
               <input
                 type="url"
                 value={youtubeUrl}
-                onChange={(e) => setYoutubeUrl(e.target.value)}
+                onChange={(e) => setPlayCircleUrl(e.target.value)}
                 placeholder="https://www.youtube.com/watch?v=..."
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-900 placeholder-slate-400"
               />
@@ -232,7 +232,7 @@ export default function RepurposePage() {
                 </>
               ) : (
                 <>
-                  <Youtube className="w-4 h-4" />
+                  <PlayCircle className="w-4 h-4" />
                   Fetch &amp; Repurpose
                 </>
               )}

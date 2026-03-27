@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "@/lib/utils";
 import { Library, Mic2, ChevronDown, ChevronUp, Copy, CheckCheck, Play, FileText } from "lucide-react";
-const Youtube = Play;
+const PlayCircle = Play;
 import { cn } from "@/lib/utils";
 
 interface Episode {
@@ -107,7 +107,7 @@ function EpisodeCard({ episode }: { episode: Episode }) {
       >
         <div className="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0">
           {episode.source_type === "youtube" ? (
-            <Youtube className="w-5 h-5 text-red-500" />
+            <PlayCircle className="w-5 h-5 text-red-500" />
           ) : (
             <FileText className="w-5 h-5 text-indigo-600" />
           )}
