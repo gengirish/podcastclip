@@ -56,8 +56,8 @@ export default function RepurposePage() {
   const [inputTab, setInputTab] = useState<"transcript" | "youtube">("transcript");
   const [title, setTitle] = useState("");
   const [transcript, setTranscript] = useState("");
-  const [youtubeUrl, setPlayCircleUrl] = useState("");
-  const [youtubeTitle, setPlayCircleTitle] = useState("");
+  const [youtubeUrl, setYoutubeUrl] = useState("");
+  const [youtubeTitle, setYoutubeTitle] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ResultData | null>(null);
   const [activeContentTab, setActiveContentTab] = useState("clip");
@@ -90,7 +90,7 @@ export default function RepurposePage() {
     }
   };
 
-  const handlePlayCircleSubmit = async (e: React.FormEvent) => {
+  const handleYoutubeSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!youtubeUrl.trim()) {
       toast.error("Please enter a YouTube URL.");
@@ -199,13 +199,13 @@ export default function RepurposePage() {
             </button>
           </form>
         ) : (
-          <form onSubmit={handlePlayCircleSubmit} className="space-y-4">
+          <form onSubmit={handleYoutubeSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">Custom Title (optional)</label>
               <input
                 type="text"
                 value={youtubeTitle}
-                onChange={(e) => setPlayCircleTitle(e.target.value)}
+                onChange={(e) => setYoutubeTitle(e.target.value)}
                 placeholder="Leave blank to auto-detect"
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-900 placeholder-slate-400"
               />
@@ -215,7 +215,7 @@ export default function RepurposePage() {
               <input
                 type="url"
                 value={youtubeUrl}
-                onChange={(e) => setPlayCircleUrl(e.target.value)}
+                onChange={(e) => setYoutubeUrl(e.target.value)}
                 placeholder="https://www.youtube.com/watch?v=..."
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-900 placeholder-slate-400"
               />

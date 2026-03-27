@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "@/lib/utils";
 import { Library, Mic2, ChevronDown, ChevronUp, Copy, CheckCheck, Play, FileText } from "lucide-react";
-const PlayCircle = Play;
 import { cn } from "@/lib/utils";
+
+const Youtube = Play;
 
 interface Episode {
   id: number;
@@ -80,7 +81,9 @@ function EpisodeCard({ episode }: { episode: Episode }) {
         const res = await fetch(`${API_URL}/api/episodes/${episode.id}/content`);
         const data = await res.json();
         setDetail(data);
-        const types = [...new Set(data.content.map((p: ContentPiece) => p.content_type))];
+        const typeSet: string[] = [];
+        data.content.forEach((p: ContentPiece) => { if (!typeSet.includes(p.content_type)) typeSet.push(p.content_type); });
+        const types = typeSet;
         if (types.length > 0) setActiveType(types[0] as string);
       } catch {
         // ignore
