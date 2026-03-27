@@ -2,10 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { API_URL } from "@/lib/utils";
-import { Library, Mic2, ChevronDown, ChevronUp, Copy, CheckCheck, Play, FileText } from "lucide-react";
+import { Library, Mic2, ChevronDown, ChevronUp, Copy, CheckCheck, Play, FileText, PlayCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const Youtube = Play;
 
 interface Episode {
   id: number;
