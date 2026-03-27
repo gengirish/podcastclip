@@ -4,8 +4,9 @@ import { useState } from "react";
 import { API_URL } from "@/lib/utils";
 import { toast } from "sonner";
 import { Scissors, Play, FileText, Copy, CheckCheck, Loader2 } from "lucide-react";
-const PlayCircle = Play;
 import { cn } from "@/lib/utils";
+
+const Youtube = Play;
 
 interface ContentPiece {
   id: number;
@@ -150,7 +151,7 @@ export default function RepurposePage() {
               inputTab === "youtube" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"
             )}
           >
-            <PlayCircle className="w-4 h-4" />
+            <Youtube className="w-4 h-4" />
             YouTube URL
           </button>
         </div>
@@ -232,7 +233,7 @@ export default function RepurposePage() {
                 </>
               ) : (
                 <>
-                  <PlayCircle className="w-4 h-4" />
+                  <Youtube className="w-4 h-4" />
                   Fetch &amp; Repurpose
                 </>
               )}
